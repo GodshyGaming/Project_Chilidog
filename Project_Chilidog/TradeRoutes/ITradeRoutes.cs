@@ -1,4 +1,4 @@
-﻿namespace Project_Chilidog.Goods
+﻿namespace Project_Chilidog.TradeRoutes
 {
     /// <title>
     /// ITradeRoutes interface
