@@ -20,7 +20,7 @@ namespace Project_Chilidog.ConsoleEngine
     /// Main();
     ///     Entrypoint for console version of program
     /// </methods>
-    class Program
+    static class Program
     {
         #region Fields
 
@@ -29,57 +29,17 @@ namespace Project_Chilidog.ConsoleEngine
         /// <summary>
         /// list of all settlements in the current worldspace
         /// </summary>
-        private static List<ISettlement> _globalSettlements = new List<ISettlement>();
+        public static List<ISettlement> GlobalSettlements = new List<ISettlement>();
 
         /// <summary>
         /// list of all merchants in the current worldspace
         /// </summary>
-        private static List<IMerchant> _globalMerchants = new List<IMerchant>();
+        public static List<IMerchant> GlobalMerchants = new List<IMerchant>();
 
         /// <summary>
         /// list of all trade routes in the current worldspace
         /// </summary>
-        private static List<ITradeRoutes> _globalTradeRoutes = new List<ITradeRoutes>();
-
-        #endregion
-
-        #region Fields.Dictionaries
-
-        /// <summary>
-        /// dictionary to map all command strings to command methods
-        /// </summary>
-        private static Dictionary<
-            string,
-            Func<List<ISettlement>, List<IMerchant>, List<ITradeRoutes>, bool>
-            >
-            _commandList_SaveLoad = new Dictionary<
-            string,
-            Func<List<ISettlement>, List<IMerchant>, List<ITradeRoutes>, bool>
-            >()
-        {
-            { "Load", (
-                _globalSettlements,
-                _globalMerchants,
-                _globalTradeRoutes
-                )
-                    => ccSaveLoad.Load(
-                        _globalSettlements,
-                        _globalMerchants,
-                        _globalTradeRoutes
-                        ) 
-            },
-            { "Save", (
-                _globalSettlements,
-                _globalMerchants,
-                _globalTradeRoutes
-                )
-                    => ccSaveLoad.Save(
-                        _globalSettlements,
-                        _globalMerchants,
-                        _globalTradeRoutes
-                        )
-            },
-        };
+        public static List<ITradeRoutes> GlobalTradeRoutes = new List<ITradeRoutes>();
 
         #endregion
 
@@ -95,34 +55,56 @@ namespace Project_Chilidog.ConsoleEngine
             Console.WriteLine("Welcome to Project Chilidog");
             while (true)
             {
-                string? command;
-
-                Console.Write("Chilidog 0.01a> ");
-                command = Console.ReadLine();
-                if (command == null)
-                    throw new Exception("Error: Null Line");
-                else if (command == "")
-                    Console.WriteLine(
-                        "You have to say something for me to know what you want"
-                        );
-                Console.WriteLine(command);
-                foreach(var key in _commandList_SaveLoad.Keys)
+                while (true)
                 {
-                    if (key == command)
+                    #region Main Menu
+
+                    Console.WriteLine("\n----------Main Menu----------\n" +
+                        "Select an option from the following:\n");
+                    Console.WriteLine("[1] Save or Load your simulation");
+                    Console.WriteLine();
+                    Console.Write("Chilidog 0.01a> ");
+
+                    #endregion
+                    switch (Console.ReadLine())
                     {
-                        if (_commandList_SaveLoad[key](
-                            _globalSettlements,
-                            _globalMerchants,
-                            _globalTradeRoutes
-                            ))
-                        {
+                        #region Save/Load Menu
+                        case "1":
+                            while (true)
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("\n----------Save/Load----------\n" +
+                                    "Select an option from the following:\n");
+                                Console.WriteLine("[1] Load a simulation");
+                                Console.WriteLine("[2] Save your simulation");
+                                Console.WriteLine();
+                                Console.Write("Chilidog 0.01a> ");
+                                switch (Console.ReadLine())
+                                {
+                                    case "1":
+                                        if (ccSaveLoad.Load())
+                                            Console.WriteLine("Command Completed");
+                                        else
+                                            Console.WriteLine("Command Failed");
+                                        break;
+                                    case "2":
+                                        if (ccSaveLoad.Save())
+                                            Console.WriteLine("Command Completed");
+                                        else
+                                            Console.WriteLine("Command Failed");
+                                        break;
+                                    default:
+                                        Console.WriteLine("I didn't quite catch that.");
+                                        break;
+
+                                }
+                                break;
+                            }
                             break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Command failed to execute");
+                        #endregion
+                        default:
+                            Console.WriteLine("I didn't quite catch that.");
                             break;
-                        }
                     }
                 }
             }

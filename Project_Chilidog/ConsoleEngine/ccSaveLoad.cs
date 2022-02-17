@@ -7,11 +7,7 @@
         /// <summary>
         /// Saves the _globalX lists to a json file
         /// </summary>
-        public static bool Save(
-            List<Settlements.ISettlement> GlobalSettlements,
-            List<Merchants.IMerchant> GlobalMerchants,
-            List<TradeRoutes.ITradeRoutes> GlobalTradeRoutes
-            )
+        public static bool Save()
         {
             Console.WriteLine("Not implemented");
             return true;
@@ -20,11 +16,7 @@
         /// <summary>
         /// loads the _globalX lists from a json file
         /// </summary>
-        public static bool Load(
-            List<Settlements.ISettlement> GlobalSettlements,
-            List<Merchants.IMerchant> GlobalMerchants,
-            List<TradeRoutes.ITradeRoutes> GlobalTradeRoutes
-            )
+        public static bool Load()
         {
             Console.WriteLine("Not implemented");
             return true;
