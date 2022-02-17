@@ -7,6 +7,13 @@
     /// <summary>
     /// determines basic behavior for merchant objects
     /// </summary>
+    /// 
+    /// <fields>
+    /// Name: Name of the Merchant
+    /// Description: Description of the Merchant
+    /// CashOnHand: Cash currently in Merchant's inventory
+    /// InventoriedGoods: Goods currently in the Merchant's inventory
+    /// </fields>
     public interface IMerchant
     {
         #region Fields
