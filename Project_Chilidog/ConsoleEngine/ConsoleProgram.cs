@@ -13,7 +13,6 @@ namespace Project_Chilidog.ConsoleEngine
     /// _globalSettlements: list of all settlements in the current worldspace
     /// _globalMerchants: list of all merchants in the current worldspace
     /// _globalTradeRoutes: list of all trade routes in the current worldspace
-    /// _commandList: dictionary to map all command strings to command methods
     /// </fields>
     /// 
     /// <methods>
