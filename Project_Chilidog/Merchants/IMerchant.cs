@@ -9,6 +9,7 @@
     /// </summary>
     /// 
     /// <fields>
+    /// ID: ID of Merchant
     /// Name: Name of the Merchant
     /// Description: Description of the Merchant
     /// CashOnHand: Cash currently in Merchant's inventory
@@ -17,6 +18,11 @@
     public interface IMerchant
     {
         #region Fields
+
+        /// <summary>
+        /// ID of merchant
+        /// </summary>
+        int ID { get; }
 
         /// <summary>
         /// Name of the Merchant

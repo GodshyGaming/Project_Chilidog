@@ -9,6 +9,7 @@
     /// </summary>
     /// 
     /// <fields>
+    /// ID: ID of good
     /// Name: Name of the good
     /// Description: Description of the good
     /// BaseValue: Basic value of the good, before calculating scarcity
@@ -17,6 +18,11 @@
     public interface IGood
     {
         #region Fields
+
+        /// <summary>
+        /// ID of good
+        /// </summary>
+        int ID { get; }
 
         /// <summary>
         /// Name of the good

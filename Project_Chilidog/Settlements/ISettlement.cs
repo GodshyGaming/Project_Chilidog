@@ -9,6 +9,7 @@
     /// </summary>
     /// 
     /// <fields>
+    /// ID: ID of settlement
     /// Name: The name of the settlement.
     /// Description: The description of the settlement.
     /// Population: Population of the settlement
@@ -18,7 +19,12 @@
     public interface ISettlement
     {
         #region Fields
-        
+
+        /// <summary>
+        /// ID of settlement
+        /// </summary>
+        int ID { get; }
+
         /// <summary>
         /// The name of the settlement.
         /// </summary>

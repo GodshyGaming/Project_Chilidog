@@ -9,6 +9,9 @@
     /// </summary>
     /// 
     /// <fields>
+    /// ID: ID of trade route
+    /// Name: name of trade route
+    /// Description: Description of trade route
     /// DestinationA: One end of the trade route, opposite of DestinationB.
     /// DestinationB: Other end of the trade route, opposite of DestinationA.
     /// Length: Real distance from DestinationA to DestinationB relative to mode of travel
@@ -16,6 +19,11 @@
     public interface ITradeRoute
     {
         #region Fields
+
+        /// <summary>
+        /// ID of trade route
+        /// </summary>
+        int ID { get; }
 
         /// <summary>
         /// Name of the trade route
