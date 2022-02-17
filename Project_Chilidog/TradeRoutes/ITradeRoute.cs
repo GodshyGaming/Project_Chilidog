@@ -1,7 +1,7 @@
 ﻿namespace Project_Chilidog.TradeRoutes
 {
     /// <title>
-    /// ITradeRoutes interface
+    /// ITradeRoute interface
     /// </title>
     /// 
     /// <summary>
@@ -13,7 +13,7 @@
     /// DestinationB: Other end of the trade route, opposite of DestinationA.
     /// Length: Real distance from DestinationA to DestinationB relative to mode of travel
     /// </fields>
-    public interface ITradeRoutes
+    public interface ITradeRoute
     {
         #region Fields
 

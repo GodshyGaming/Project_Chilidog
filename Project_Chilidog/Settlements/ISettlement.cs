@@ -37,7 +37,7 @@
         /// <summary>
         /// Trade routes connected to the settlement
         /// </summary>
-        List<TradeRoutes.ITradeRoutes> LocalTradeRoutes { get; set; }
+        List<TradeRoutes.ITradeRoute> LocalTradeRoutes { get; set; }
 
         /// <summary>
         /// Goods traded in the settlement
