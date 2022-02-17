@@ -12,8 +12,8 @@
     /// ID: ID of good
     /// Name: Name of the good
     /// Description: Description of the good
+    /// Type: The type of good
     /// BaseValue: Basic value of the good, before calculating scarcity
-    /// Quantity: Quantity of good being represented
     /// </fields>
     public interface IGood
     {
@@ -35,14 +35,14 @@
         string Description { get; set; }
 
         /// <summary>
+        /// The type of good
+        /// </summary>
+        string Type { get; }
+
+        /// <summary>
         /// Basic value of the good, before calculating scarcity
         /// </summary>
         decimal BaseValue { get; set; }
-
-        /// <summary>
-        /// Quantity of good being represented
-        /// </summary>
-        int Quantity { get; set; }
 
         #endregion
     }
