@@ -35,6 +35,11 @@
         string Description { get; set; }
 
         /// <summary>
+        /// Basic unit of the good (kg, lbs, bushel, whatever)
+        /// </summary>
+        string BasicUnit { get; set; }
+
+        /// <summary>
         /// The type of good
         /// </summary>
         string Type { get; }

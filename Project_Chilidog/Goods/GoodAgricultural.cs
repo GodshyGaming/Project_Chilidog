@@ -20,6 +20,11 @@
         public string Description { get; set; }
 
         /// <summary>
+        /// Basic unit of the good (kg, lbs, bushel, whatever)
+        /// </summary>
+        public string BasicUnit { get; set; }
+
+        /// <summary>
         /// The type of good
         /// </summary>
         public string Type { get; }
@@ -41,12 +46,17 @@
         public GoodAgricultural(
             string name = "default_name",
             string description = "default_description",
+            string basicUnit = "default_unity",
             decimal baseValue = 0,
             int expirationTime = 0
             )
         {
+            if ( name == null || description == null )
+                throw new ArgumentNullException("GoodAgricultural Constuctor encountered a null");
+
             Name = name;
             Description = description;
+            BasicUnit = basicUnit;
             Type = "Agricultural";
             BaseValue = baseValue;
             ExpirationTime = expirationTime;
@@ -54,7 +64,7 @@
             int tempID = 0;
             foreach (var item in ConsoleEngine.Program.GlobalGoods)
             {
-                if (item.ID > tempID)
+                if (item.ID >= tempID)
                     tempID = item.ID + 1;
             }
             this.ID = tempID;
