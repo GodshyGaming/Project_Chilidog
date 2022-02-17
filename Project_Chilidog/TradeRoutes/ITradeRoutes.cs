@@ -18,6 +18,16 @@
         #region Fields
 
         /// <summary>
+        /// Name of the trade route
+        /// </summary>
+        string Name { get; set; }
+
+        /// <summary>
+        /// Description of the trade route
+        /// </summary>
+        string Description { get; set; }
+
+        /// <summary>
         /// One end of the trade route, opposite of DestinationB.
         /// </summary>
         Settlements.ISettlement DestinationA { get; set; }
