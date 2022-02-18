@@ -1,4 +1,6 @@
-﻿namespace Project_Chilidog.Goods
+﻿using System;
+
+namespace Project_Chilidog.Goods
 {
     public class GoodAgricultural : IGood
     {

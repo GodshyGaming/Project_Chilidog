@@ -1,4 +1,6 @@
-﻿namespace Project_Chilidog.Merchants
+﻿using System.Collections.Generic;
+
+namespace Project_Chilidog.Merchants
 {
     /// <title>
     /// IMerchant interface

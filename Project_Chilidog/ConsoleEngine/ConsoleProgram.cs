@@ -3,6 +3,9 @@ using Project_Chilidog.Goods;
 using Project_Chilidog.Merchants;
 using Project_Chilidog.TradeRoutes;
 
+using System;
+using System.Collections.Generic;
+
 namespace Project_Chilidog.ConsoleEngine
 {
     /// <summary>

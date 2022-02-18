@@ -1,4 +1,6 @@
-﻿namespace Project_Chilidog.Settlements
+﻿using System.Collections.Generic;
+
+namespace Project_Chilidog.Settlements
 {
     /// <title>
     /// ISettlement interface

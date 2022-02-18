@@ -1,4 +1,6 @@
-﻿namespace Project_Chilidog.ConsoleEngine
+﻿using System;
+
+namespace Project_Chilidog.ConsoleEngine
 {
     public static class ccSaveLoad
     {
