@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project_Chilidog", "Project_Chilidog\Project_Chilidog.csproj", "{96C43914-5029-4F18-9EB2-139CB549A656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project_Chilidog", "Project_Chilidog\Project_Chilidog.csproj", "{96C43914-5029-4F18-9EB2-139CB549A656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67FE9C15-3551-4572-9625-0F058B6F9244}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
