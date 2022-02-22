@@ -2,7 +2,7 @@
 
 namespace Project_Chilidog.Goods
 {
-    public class GoodAgricultural : IGood
+    public class GoodGeneric : IGood
     {
         #region Properties
 
@@ -36,32 +36,25 @@ namespace Project_Chilidog.Goods
         /// </summary>
         public decimal BaseValue { get; set; }
 
-        /// <summary>
-        /// Time until good expires in days
-        /// </summary>
-        public int ExpirationTime { get; set; }
-
         #endregion
 
         #region Constructors
 
-        public GoodAgricultural(
+        public GoodGeneric(
             string name = "default_name",
             string description = "default_description",
             string basicUnit = "default_unity",
-            decimal baseValue = 0,
-            int expirationTime = 0
+            decimal baseValue = 0
             )
         {
             if ( name == null || description == null )
-                throw new ArgumentNullException("GoodAgricultural Constuctor encountered a null");
+                throw new ArgumentNullException("GoodGeneric Constuctor encountered a null");
 
             Name = name;
             Description = description;
             BasicUnit = basicUnit;
-            Type = "Agricultural";
+            Type = "Generic";
             BaseValue = baseValue;
-            ExpirationTime = expirationTime;
 
             int tempID = 0;
             foreach (var item in ConsoleEngine.Program.GlobalGoods)

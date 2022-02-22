@@ -135,8 +135,8 @@ namespace Project_Chilidog.ConsoleEngine
                         switch(Console.ReadLine())
                         {
                             case "1":
-                                PrintObject(ccGoodHandling.CreateGood());
-                                PrintGlobalList("GlobalGoods");
+                                ccEngineFunctions.PrintObject(ccGoodHandling.CreateGood());
+                                ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "2":
                                 Console.WriteLine("Please enter the name of the item you wish to delete:");
@@ -144,13 +144,13 @@ namespace Project_Chilidog.ConsoleEngine
                                     Console.WriteLine("Item Successfully Deleted!");
                                 else
                                     Console.WriteLine("Item not found");
-                                PrintGlobalList("GlobalGoods");
+                                ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "3":
-                                PrintGlobalList("Not Implemented");
+                                Console.WriteLine("Not Implemented");
                                 goto GoodsMenuStart;
                             case "4":
-                                PrintGlobalList("GlobalGoods");
+                                ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "5":
                                 break;
@@ -220,64 +220,6 @@ namespace Project_Chilidog.ConsoleEngine
                         break;
                 }
             }
-        }
-
-        /// <summary>
-        /// Prints an object's parameters to console, including all types of game objects
-        /// </summary>
-        /// 
-        /// <param name="obj">
-        /// Any object, but preferrably an IGood, ISettlement, IMerchant, or ITradeRoute descendant
-        /// </param>
-        static void PrintObject(object obj)
-        {
-            Type type = obj.GetType();
-            foreach (var info in type.GetProperties())
-            {
-                Console.WriteLine(
-                    "{0}: {1}",
-                    info.Name,
-                    obj.GetType().GetProperty(info.Name).GetValue(obj, null)
-                    );
-            }
-            Console.WriteLine();
-        }
-
-        /// <summary>
-        /// Prints out one of the Global Lists by name
-        /// </summary>
-        /// 
-        /// <param name="listName">
-        /// the name as a string of the list to print
-        /// </param>
-        static void PrintGlobalList(string listName)
-        {
-            switch(listName)
-            {
-                case "GlobalGoods":
-                    Console.WriteLine("Global Goods List:");
-                    foreach (var Good in GlobalGoods)
-                        Console.WriteLine(Good.Name);
-                    break;
-                case "GlobalSettlements":
-                    Console.WriteLine("Global Settlements List:");
-                    foreach (var Settlement in GlobalSettlements)
-                        Console.WriteLine(Settlement.Name);
-                    break;
-                case "GlobalMerchants":
-                    Console.WriteLine("Global Merchants List:");
-                    foreach (var Merchant in GlobalMerchants)
-                        Console.WriteLine(Merchant.Name);
-                    break;
-                case "GlobalTradeRoutes":
-                    Console.WriteLine("Global Trade Routes List:");
-                    foreach (var TradeRoute in GlobalTradeRoutes)
-                        Console.WriteLine(TradeRoute.Name);
-                    break;
-                default:
-                    throw new ArgumentException("listName is not a valid list name");
-            }
-            Console.WriteLine();
         }
 
         #endregion
