@@ -4,6 +4,15 @@ namespace Project_Chilidog.ConsoleEngine
 {
     public static class ccGoodHandling
     {
+        #region Methods
+
+        /// <summary>
+        /// Creates a Good game object
+        /// </summary>
+        /// 
+        /// <returns>
+        /// The good that was created
+        /// </returns>
         public static Goods.IGood CreateGood()
         {
             Goods.IGood NewGood;
@@ -58,5 +67,25 @@ namespace Project_Chilidog.ConsoleEngine
                 }
             }
         }
+
+        public static bool DestroyGood(string TargetName)
+        {
+            if (TargetName == null)
+                return false;
+            Goods.IGood? Target = null;
+            foreach (var Good in Program.GlobalGoods)
+            {
+                if (Good.Name == TargetName)
+                    Target = Good;
+            }
+            if (Target != null)
+            {
+                Program.GlobalGoods.Remove(Target);
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
     }
 }

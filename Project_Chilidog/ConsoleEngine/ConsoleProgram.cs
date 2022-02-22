@@ -125,19 +125,29 @@ namespace Project_Chilidog.ConsoleEngine
                     case "3":
                         while (true)
                         {
+                            GoodsMenuStart:
                             Console.WriteLine("\n----------Goods Menu----------\n" +
                                 "Select an option from the following:\n");
                             Console.WriteLine("[1] Create a new good");
+                            Console.WriteLine("[2] Delete an old good");
                             Console.Write("\nChilidog 0.01a> ");
                             switch(Console.ReadLine())
                             {
                                 case "1":
                                     PrintObject(ccGoodHandling.CreateGood());
                                     PrintGlobalList("GlobalGoods");
-                                    break;
+                                    goto GoodsMenuStart;
+                                case "2":
+                                    Console.WriteLine("Please enter the name of the item you wish to delete:");
+                                    if (ccGoodHandling.DestroyGood(Console.ReadLine()))
+                                        Console.WriteLine("Item Successfully Deleted!");
+                                    else
+                                        Console.WriteLine("Item not found");
+                                    PrintGlobalList("GlobalGoods");
+                                    goto GoodsMenuStart;
                                 default:
                                     Console.WriteLine("I didn't quite catch that.");
-                                    break;
+                                    goto GoodsMenuStart;
                             }
                             break;
                         }
