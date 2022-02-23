@@ -19,12 +19,12 @@ namespace Project_Chilidog.ConsoleEngine
         public static void PrintObject(object obj)
         {
             Type type = obj.GetType();
-            foreach (var info in type.GetProperties())
+            foreach (var Property in type.GetProperties())
             {
                 Console.WriteLine(
                     "{0}: {1}",
-                    info.Name,
-                    obj.GetType().GetProperty(info.Name).GetValue(obj, null)
+                    Property.Name,
+                    Property.GetValue(obj, null)
                     );
             }
             Console.WriteLine();

@@ -130,7 +130,8 @@ namespace Project_Chilidog.ConsoleEngine
                         Console.WriteLine("[2] Delete an old good");
                         Console.WriteLine("[3] Modify a good");
                         Console.WriteLine("[4] View current goods");
-                        Console.WriteLine("[5] Return to main men");
+                        Console.WriteLine("[5] Examine a good");
+                        Console.WriteLine("[6] Return to main men");
                         Console.Write("\nChilidog 0.01a> ");
                         switch(Console.ReadLine())
                         {
@@ -153,6 +154,13 @@ namespace Project_Chilidog.ConsoleEngine
                                 ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "5":
+                                Console.Write("What good would you like to examine?: ");
+                                string SearchTarget = Console.ReadLine();
+                                foreach (var Good in GlobalGoods)
+                                    if (Good.Name == SearchTarget)
+                                        ccEngineFunctions.PrintObject(Good);
+                                goto GoodsMenuStart;
+                            case "6":
                                 break;
                             default:
                                 Console.WriteLine("I didn't quite catch that.");
