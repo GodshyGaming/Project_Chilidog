@@ -62,10 +62,10 @@ namespace Project_Chilidog.TradeRoutes
         #region Constructors
 
         public TradeRouteGeneric(
-            string name = "default_name",
-            string description = "default_description",
             Settlements.ISettlement DesA,
             Settlements.ISettlement DesB,
+            string name = "default_name",
+            string description = "default_description",
             decimal length = 0
             )
         {
