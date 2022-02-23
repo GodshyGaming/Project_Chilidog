@@ -38,6 +38,11 @@ namespace Project_Chilidog.Settlements
         string Description { get; set; }
 
         /// <summary>
+        /// The type of trade route
+        /// </summary>
+        string Type { get; }
+
+        /// <summary>
         /// Population of the settlement
         /// </summary>
         int Population { get; set; }
