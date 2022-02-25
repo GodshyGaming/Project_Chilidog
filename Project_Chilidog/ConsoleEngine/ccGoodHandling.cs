@@ -126,11 +126,14 @@ namespace Project_Chilidog.ConsoleEngine
 
             #region Modify Menu
 
-        ModifyMenuStart:
+            ModifyMenuStart:
             ccEngineFunctions.PrintObject(Target);
 
-            Console.Write("What property of {0} would you like to modify?: ");
+            Console.Write("Type a property of {0} to modify or [Exit] to exit modification: ", Target.Name);
             TargetProperty = Console.ReadLine();
+
+            if (TargetProperty == "Exit")
+                return Target;
 
             foreach (var Property in Target.GetType().GetProperties())
             {
@@ -141,7 +144,7 @@ namespace Project_Chilidog.ConsoleEngine
                         Property.Name,
                         Property.GetValue(Target)
                         );
-                    Console.Write("What would you like the new value to be?");
+                    Console.Write("What would you like the new {0} to be?: ", Property.Name);
                     Property.SetValue(Target, Console.ReadLine());
                     Console.WriteLine("{0}'s Current {1} has been updated to {2}",
                         Target.Name,
@@ -152,10 +155,11 @@ namespace Project_Chilidog.ConsoleEngine
                 }
             }
 
+            Console.WriteLine("Couldn't find a property of that name.");
+            goto ModifyMenuStart;
+
             #endregion
 
-
-            return Target;
         }
 
         #endregion

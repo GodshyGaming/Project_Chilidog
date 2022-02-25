@@ -148,7 +148,8 @@ namespace Project_Chilidog.ConsoleEngine
                                 ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "3":
-                                Console.WriteLine("Not Implemented");
+                                Console.WriteLine("What good would you like to modify?: ");
+                                ccGoodHandling.ModifyGood(Console.ReadLine());
                                 goto GoodsMenuStart;
                             case "4":
                                 ccEngineFunctions.PrintGlobalList("GlobalGoods");
