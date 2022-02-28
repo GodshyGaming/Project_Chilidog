@@ -136,7 +136,7 @@ namespace Project_Chilidog.ConsoleEngine
                         switch(Console.ReadLine())
                         {
                             case "1":
-                                ccEngineFunctions.PrintObject(ccGoodHandling.CreateGood());
+                                ccGoodHandling.CreateGood();
                                 ccEngineFunctions.PrintGlobalList("GlobalGoods");
                                 goto GoodsMenuStart;
                             case "2":
@@ -167,7 +167,6 @@ namespace Project_Chilidog.ConsoleEngine
                                 Console.WriteLine("I didn't quite catch that.");
                                 goto GoodsMenuStart;
                         }
-                        break;
                         Console.WriteLine();
                         break;
                     #endregion
