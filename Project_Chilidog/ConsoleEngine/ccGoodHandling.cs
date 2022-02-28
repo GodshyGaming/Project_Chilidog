@@ -13,54 +13,55 @@ namespace Project_Chilidog.ConsoleEngine
         /// <returns>
         /// The good that was created
         /// </returns>
-        public static Goods.IGood CreateGood()
+        public static void CreateGood()
         {
             Goods.IGood NewGood;
-            while (true)
+            
+            BeginCreationMenu:
+            Console.WriteLine("What type of good would you like to create?\n");
+            Console.WriteLine("[1] Exit to Goods Menu");
+            Console.WriteLine("[2] Generic Good");
+            Console.Write("\nChilidog 0.01a> ");
+            Console.WriteLine();
+
+            switch (Console.ReadLine())
             {
-                Console.WriteLine("What type of good would you like to create?\n");
-                Console.WriteLine("[1] Generic Good");
-                Console.Write("\nChilidog 0.01a> ");
-                Console.WriteLine();
+                case "1":
+                    break;
+                #region Generic Good
+                case "2":
+                    string name;
+                    string description;
+                    string basicUnit;
+                    decimal baseValue;
 
-                switch (Console.ReadLine())
-                {
-                    #region Generic Good
-                    case "1":
-                        string name;
-                        string description;
-                        string basicUnit;
-                        decimal baseValue;
-                        int expirationTime;
+                    Console.Write("What will this good be called?\n" +
+                        "Name: ");
+                    name = Console.ReadLine();
+                    Console.Write("Describe this good for posterity\n" +
+                        "Description: ");
+                    description = Console.ReadLine();
+                    Console.Write("What will the basic unit of this" +
+                        "good be known as? (kg, lb, bushel, whatever)\n" +
+                        "Name: ");
+                    basicUnit = Console.ReadLine();
+                    Console.Write("What will be the basic value of this good, " +
+                        "in decimals of your base currency, " +
+                        "before any scarcity is calculated?\n" +
+                        "Base Value: ");
+                    baseValue = decimal.Parse(Console.ReadLine());
 
-                        Console.Write("What will this good be called?\n" +
-                            "Name: ");
-                        name = Console.ReadLine();
-                        Console.Write("Describe this good for posterity\n" +
-                            "Description: ");
-                        description = Console.ReadLine();
-                        Console.Write("What will the basic unit of this" +
-                            "good be known as? (kg, lb, bushel, whatever)\n" +
-                            "Name: ");
-                        basicUnit = Console.ReadLine();
-                        Console.Write("What will be the basic value of this good, " +
-                            "in decimals of your base currency, " +
-                            "before any scarcity is calculated?\n" +
-                            "Base Value: ");
-                        baseValue = decimal.Parse(Console.ReadLine());
+                    Console.WriteLine();
 
-                        Console.WriteLine();
-
-                        NewGood = new Goods.GoodGeneric(
-                            name, description, basicUnit, baseValue
-                            );
-                        Console.WriteLine("{0} succesfully created!", name);
-                        return NewGood;
-                    #endregion
-                    default:
-                        Console.WriteLine("I'm sorry I didn't quite catch that.");
-                        break;
-                }
+                    NewGood = new Goods.GoodGeneric(
+                        name, description, basicUnit, baseValue
+                        );
+                    Console.WriteLine("{0} succesfully created!", name);
+                    return;
+                #endregion
+                default:
+                    Console.WriteLine("I'm sorry I didn't quite catch that.");
+                    goto BeginCreationMenu;
             }
         }
 
