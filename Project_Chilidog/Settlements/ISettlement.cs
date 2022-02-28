@@ -16,7 +16,7 @@ namespace Project_Chilidog.Settlements
     /// Description: The description of the settlement.
     /// Population: Population of the settlement
     /// LocalTradeRoutes: Trade routes connected to the settlement
-    /// LocalGoods: Goods traded in the settlement
+    /// LocalGoods: Goods traded in the settlement and how much of each is present
     /// </fields>
     public interface ISettlement
     {
@@ -55,7 +55,7 @@ namespace Project_Chilidog.Settlements
         /// <summary>
         /// Goods traded in the settlement
         /// </summary>
-        List<Goods.IGood> LocalGoods { get; set; }
+        Dictionary<Goods.IGood, int> LocalGoods { get; set; }
 
         #endregion
     }

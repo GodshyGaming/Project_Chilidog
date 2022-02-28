@@ -53,7 +53,7 @@ namespace Project_Chilidog.Settlements
         /// <summary>
         /// Goods traded in the settlement
         /// </summary>
-        public List<Goods.IGood> LocalGoods { get; set; }
+        Dictionary<Goods.IGood, int> LocalGoods { get; set; }
 
         #endregion
 
@@ -89,7 +89,7 @@ namespace Project_Chilidog.Settlements
             Type = "Generic";
             Population = population;
             LocalTradeRoutes = new List<TradeRoutes.ITradeRoute>();
-            LocalGoods = new List<Goods.IGood>();
+            LocalGoods = new Dictionary<Goods.IGood, int>();
 
             int tempID = 0;
             foreach (var item in ConsoleEngine.Program.GlobalGoods)
