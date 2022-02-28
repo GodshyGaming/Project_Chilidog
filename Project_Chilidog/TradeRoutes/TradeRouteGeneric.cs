@@ -2,18 +2,16 @@
 
 namespace Project_Chilidog.TradeRoutes
 {
-    /// <title>
-    /// ITradeRoute interface
-    /// </title>
-    /// 
+
     /// <summary>
-    /// determines basic behavior for trade route objects
+    /// generic Trade Route object
     /// </summary>
     /// 
     /// <fields>
     /// ID: ID of trade route
     /// Name: name of trade route
     /// Description: Description of trade route
+    /// Type: the type of trade route
     /// DestinationA: One end of the trade route, opposite of DestinationB.
     /// DestinationB: Other end of the trade route, opposite of DestinationA.
     /// Length: Real distance from DestinationA to DestinationB relative to mode of travel
@@ -61,6 +59,29 @@ namespace Project_Chilidog.TradeRoutes
 
         #region Constructors
 
+        /// <summary>
+        /// basic constructor for generic trade route object
+        /// </summary>
+        /// 
+        /// <param name="DesA">
+        /// ISettlement type object of one end of the route
+        /// </param>
+        /// <param name="DesB">
+        /// ISettlement type object of the other end of the route
+        /// </param>
+        /// <param name="name">
+        /// name of the route
+        /// </param>
+        /// <param name="description">
+        /// description of the route
+        /// </param>
+        /// <param name="length">
+        /// decimal length of the route in whatever agreed upon standardized length
+        /// </param>
+        /// 
+        /// <exception cref="ArgumentNullException">
+        /// name, description, and length are often taken from WriteLine, this is to catch the rare null pass
+        /// </exception>
         public TradeRouteGeneric(
             Settlements.ISettlement DesA,
             Settlements.ISettlement DesB,

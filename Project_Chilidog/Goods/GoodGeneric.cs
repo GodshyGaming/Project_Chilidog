@@ -2,6 +2,17 @@
 
 namespace Project_Chilidog.Goods
 {
+    /// <summary>
+    /// generic Good object
+    /// </summary>
+    /// 
+    /// <fields>
+    /// ID: ID of good
+    /// Name: Name of the good
+    /// Description: Description of the good
+    /// Type: The type of good
+    /// BaseValue: Basic value of the good, before calculating scarcity
+    /// </fields>
     public class GoodGeneric : IGood
     {
         #region Properties
@@ -40,6 +51,26 @@ namespace Project_Chilidog.Goods
 
         #region Constructors
 
+        /// <summary>
+        /// generic good objects
+        /// </summary>
+        /// 
+        /// <param name="name">
+        /// name of the good
+        /// </param>
+        /// <param name="description">
+        /// description of the good
+        /// </param>
+        /// <param name="basicUnit">
+        /// basic unit of trade of the good
+        /// </param>
+        /// <param name="baseValue">
+        /// basic value of the good
+        /// </param>
+        /// 
+        /// <exception cref="ArgumentNullException">
+        /// things are often passed from WriteLine, this is to catch a rare null pass
+        /// </exception>
         public GoodGeneric(
             string name = "default_name",
             string description = "default_description",

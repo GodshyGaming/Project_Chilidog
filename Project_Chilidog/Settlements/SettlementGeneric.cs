@@ -3,21 +3,18 @@ using System.Collections.Generic;
 
 namespace Project_Chilidog.Settlements
 {
-    /// <title>
-    /// ISettlement interface
-    /// </title>
-    /// 
     /// <summary>
-    /// Determines basic behavior for settlement objects.
+    /// Generic Settlement object
     /// </summary>
     /// 
     /// <fields>
-    /// ID: ID of settlement
-    /// Name: The name of the settlement.
-    /// Description: The description of the settlement.
-    /// Population: Population of the settlement
-    /// LocalTradeRoutes: Trade routes connected to the settlement
-    /// LocalGoods: Goods traded in the settlement
+    /// ID: int identifying the settlement instance
+    /// Name: Name of the settlement
+    /// Description: Description of the settlement
+    /// Type: the type of settlement
+    /// Population: population of the settlement
+    /// LocalTradeRoutes: list of all locally accesible trade route objects
+    /// LocalGoods: list of all locally stocked good objects
     /// </fields>
     public class SettlementGeneric : ISettlement
     {
@@ -39,7 +36,7 @@ namespace Project_Chilidog.Settlements
         public string Description { get; set; }
 
         /// <summary>
-        /// The type of trade route
+        /// The type of settlement.
         /// </summary>
         public string Type { get; }
 
@@ -62,6 +59,22 @@ namespace Project_Chilidog.Settlements
 
         #region Constructors
 
+        /// <summary>
+        /// Constructor for a generic Settlement object
+        /// </summary>
+        /// 
+        /// <param name="name">
+        /// String name of the settlement to be created
+        /// </param>
+        /// <param name="description">
+        /// string description of the settlement to be created
+        /// </param>
+        /// <param name="population">
+        /// int population to be created
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// name and description are generally pulled from a WriteLine, this is to catch the possible null pass
+        /// </exception>
         public SettlementGeneric(
             string name = "default_name",
             string description = "default_description",
