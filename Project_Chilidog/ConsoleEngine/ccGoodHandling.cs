@@ -105,13 +105,13 @@ namespace Project_Chilidog.ConsoleEngine
         /// <returns>
         /// the modified good
         /// </returns>
-        public static Goods.IGood ModifyGood(string TargetName)
+        public static void ModifyGood(string TargetName)
         {
             Goods.IGood Target = null;
             string TargetProperty = "";
 
             if (TargetName == null)
-                return null;
+                throw new ArgumentNullException("null value passed to ModifySettlement");
 
             foreach (var Good in Program.GlobalGoods)
             {
@@ -122,7 +122,7 @@ namespace Project_Chilidog.ConsoleEngine
             if (Target == null)
             {
                 Console.WriteLine("Couldn't find a good of that name.");
-                return null;
+                return;
             }
 
             #region Modify Menu
@@ -134,7 +134,7 @@ namespace Project_Chilidog.ConsoleEngine
             TargetProperty = Console.ReadLine();
 
             if (TargetProperty == "Exit")
-                return Target;
+                return;
 
             foreach (var Property in Target.GetType().GetProperties())
             {
