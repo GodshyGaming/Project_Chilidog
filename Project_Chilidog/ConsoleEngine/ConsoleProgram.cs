@@ -172,20 +172,100 @@ namespace Project_Chilidog.ConsoleEngine
                     #endregion
                     #region Settlements Menu
                     case "4":
-                        while (true)
+                    SettlementMenuStart:
+                        Console.WriteLine("\n----------Settlements Menu----------\n" +
+                            "Select an option from the following:\n");
+                        Console.WriteLine("[1] Create a new settlement");
+                        Console.WriteLine("[2] Delete an old settlement");
+                        Console.WriteLine("[3] Modify a settlement");
+                        Console.WriteLine("[4] View current settlements");
+                        Console.WriteLine("[5] Examine a settlement");
+                        Console.WriteLine("[6] Return to main men");
+                        Console.Write("\nChilidog 0.01a> ");
+                        switch (Console.ReadLine())
                         {
-                            Console.WriteLine("This menu is not implemented yet");
-                            break;
+                            case "1":
+                                ccSettlementHandling.CreateSettlement();
+                                ccEngineFunctions.PrintGlobalList("GlobalSettlements");
+                                goto SettlementMenuStart;
+                            case "2":
+                                Console.WriteLine("Please enter the name of the item you wish to delete:");
+                                if (ccSettlementHandling.DestroySettlement(Console.ReadLine()))
+                                    Console.WriteLine("Item Successfully Deleted!");
+                                else
+                                    Console.WriteLine("Item not found");
+                                ccEngineFunctions.PrintGlobalList("GlobalSettlements");
+                                goto SettlementMenuStart;
+                            case "3":
+                                Console.WriteLine("What settlement would you like to modify?: ");
+                                ccSettlementHandling.ModifySettlement(Console.ReadLine());
+                                goto SettlementMenuStart;
+                            case "4":
+                                ccEngineFunctions.PrintGlobalList("GlobalSettlements");
+                                goto SettlementMenuStart;
+                            case "5":
+                                Console.Write("What settlement would you like to examine?: ");
+                                string SearchTarget = Console.ReadLine();
+                                foreach (var Settlement in GlobalSettlements)
+                                    if (Settlement.Name == SearchTarget)
+                                        ccEngineFunctions.PrintObject(Settlement);
+                                goto SettlementMenuStart;
+                            case "6":
+                                break;
+                            default:
+                                Console.WriteLine("I didn't quite catch that.");
+                                goto SettlementMenuStart;
                         }
+                        Console.WriteLine();
                         break;
                     #endregion
                     #region Trade Routes Menu
                     case "5":
-                        while (true)
+                    TradeRouteMenuStart:
+                        Console.WriteLine("\n----------TradeRoutes Menu----------\n" +
+                            "Select an option from the following:\n");
+                        Console.WriteLine("[1] Create a new trade route");
+                        Console.WriteLine("[2] Delete an old trade route");
+                        Console.WriteLine("[3] Modify a trade route");
+                        Console.WriteLine("[4] View current trade routes");
+                        Console.WriteLine("[5] Examine a trade route");
+                        Console.WriteLine("[6] Return to main men");
+                        Console.Write("\nChilidog 0.01a> ");
+                        switch (Console.ReadLine())
                         {
-                            Console.WriteLine("This menu is not implemented yet");
-                            break;
+                            case "1":
+                                ccTradeRouteHandling.CreateTradeRoute();
+                                ccEngineFunctions.PrintGlobalList("GlobalTradeRoutes");
+                                goto TradeRouteMenuStart;
+                            case "2":
+                                Console.WriteLine("Please enter the name of the item you wish to delete:");
+                                if (ccTradeRouteHandling.DestroyTradeRoute(Console.ReadLine()))
+                                    Console.WriteLine("Item Successfully Deleted!");
+                                else
+                                    Console.WriteLine("Item not found");
+                                ccEngineFunctions.PrintGlobalList("GlobalTradeRoutes");
+                                goto TradeRouteMenuStart;
+                            case "3":
+                                Console.WriteLine("What trade route would you like to modify?: ");
+                                ccTradeRouteHandling.ModifyTradeRoute(Console.ReadLine());
+                                goto TradeRouteMenuStart;
+                            case "4":
+                                ccEngineFunctions.PrintGlobalList("GlobalTradeRoutes");
+                                goto TradeRouteMenuStart;
+                            case "5":
+                                Console.Write("What trade route would you like to examine?: ");
+                                string SearchTarget = Console.ReadLine();
+                                foreach (var TradeRoute in GlobalTradeRoutes)
+                                    if (TradeRoute.Name == SearchTarget)
+                                        ccEngineFunctions.PrintObject(TradeRoute);
+                                goto TradeRouteMenuStart;
+                            case "6":
+                                break;
+                            default:
+                                Console.WriteLine("I didn't quite catch that.");
+                                goto TradeRouteMenuStart;
                         }
+                        Console.WriteLine();
                         break;
                     #endregion
                     #region Merchants Menu
