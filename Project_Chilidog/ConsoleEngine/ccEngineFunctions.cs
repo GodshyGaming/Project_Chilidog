@@ -66,5 +66,15 @@ namespace Project_Chilidog.ConsoleEngine
             }
             Console.WriteLine();
         }
+
+        public static T SearchObject<T>(string searchTerm, List<T> GlobalList)
+        {
+            foreach(T GameObject in GlobalList)
+            {
+                if (GameObject.Name == searchTerm)
+                    return GameObject;
+            }
+            throw new ArgumentException("Search term could not be found");
+        }
     }
 }
