@@ -53,7 +53,7 @@ namespace Project_Chilidog.Settlements
         /// <summary>
         /// Goods traded in the settlement
         /// </summary>
-        Dictionary<Goods.IGood, int> LocalGoods { get; set; }
+        public Dictionary<Goods.IGood, int> LocalGoods { get; set; }
 
         #endregion
 
