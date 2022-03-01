@@ -19,7 +19,7 @@ namespace Project_Chilidog.Merchants
     /// </fields>
     public interface IMerchant
     {
-        #region Fields
+        #region Properties
 
         /// <summary>
         /// ID of merchant
@@ -39,7 +39,22 @@ namespace Project_Chilidog.Merchants
         /// <summary>
         /// Cash currently in Merchant's inventory
         /// </summary>
-        decimal CashOnHand { get; set; }
+        decimal LiquidWealth { get; set; }
+
+        /// <summary>
+        /// Current status of the merchant
+        /// </summary>
+        string CurrentStatus { get; set; }
+
+        /// <summary>
+        /// Days left in the current status
+        /// </summary>
+        int StatusTimer { get; set; }
+
+        /// <summary>
+        /// current object location, should either be a settlement or trade route.
+        /// </summary>
+        object CurrentLocation { get; set; }
 
         /// <summary>
         /// Goods currently in the Merchant's inventory

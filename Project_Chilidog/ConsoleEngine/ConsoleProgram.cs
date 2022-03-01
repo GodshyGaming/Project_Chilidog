@@ -114,11 +114,23 @@ namespace Project_Chilidog.ConsoleEngine
                     #endregion
                     #region Simulation Menu
                     case "2":
-                        while (true)
+                        SimulationMenuStart:
+                        Console.WriteLine("\n----------Simulation Menu----------\n" +
+                            "Select an option from the following:\n");
+                        Console.WriteLine("[1] Advance the simulation");
+                        Console.WriteLine("[2] Exit to main menu");
+                        Console.Write("\nChilidog 0.01a> ");
+                        switch (Console.ReadLine())
                         {
-                            Console.WriteLine("This menu is not implemented yet");
-                            break;
+                            case "1":
+                                break;
+                            case "2":
+                                break;
+                            default:
+                                Console.WriteLine("I didn't quite catch that.");
+                                break;
                         }
+
                         break;
                     #endregion
                     #region Goods Menu
