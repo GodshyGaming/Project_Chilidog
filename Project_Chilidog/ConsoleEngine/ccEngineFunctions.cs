@@ -67,6 +67,28 @@ namespace Project_Chilidog.ConsoleEngine
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// searches for an object by name in one of the Program global lists
+        /// </summary>
+        /// 
+        /// <typeparam name="T">
+        /// Whatever type the item you're looking for it. Populated from type of list searched
+        /// </typeparam>
+        /// 
+        /// <param name="searchTerm">
+        /// name of the object you are searching for
+        /// </param>
+        /// <param name="GlobalList">
+        /// the list you are searching in, one of the global lists in Program
+        /// </param>
+        /// 
+        /// <returns>
+        /// The object you're looking for, hopefully
+        /// </returns>
+        /// 
+        /// <exception cref="ArgumentException">
+        /// If search couldn't be completed succesfully.
+        /// </exception>
         public static T SearchObject<T>(string searchTerm, List<T> GlobalList)
         {
             foreach(T GameObject in GlobalList)
