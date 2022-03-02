@@ -26,6 +26,8 @@ namespace Project_Chilidog.ConsoleEngine
     {
         #region Fields
 
+        public static string SaveFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Chilidog";
+
         #region Fields.GameObjects
 
         /// <summary>
@@ -80,35 +82,35 @@ namespace Project_Chilidog.ConsoleEngine
                 {
                     #region Save/Load Menu
                     case "1":
-                        while (true)
+                        SaveLoadMenuStart:
+                        Console.WriteLine();
+                        Console.WriteLine("\n----------Save/Load----------\n" +
+                            "Select an option from the following:\n");
+                        Console.WriteLine("[1] Load a simulation");
+                        Console.WriteLine("[2] Save your simulation");
+                        Console.WriteLine("[3] Exit to main menu");
+                        Console.WriteLine();
+                        Console.Write("Chilidog 0.01a> ");
+                        switch (Console.ReadLine())
                         {
-                            Console.WriteLine();
-                            Console.WriteLine("\n----------Save/Load----------\n" +
-                                "Select an option from the following:\n");
-                            Console.WriteLine("[1] Load a simulation");
-                            Console.WriteLine("[2] Save your simulation");
-                            Console.WriteLine();
-                            Console.Write("Chilidog 0.01a> ");
-                            switch (Console.ReadLine())
-                            {
-                                case "1":
-                                    if (ccSaveLoad.Load())
-                                        Console.WriteLine("Command Completed");
-                                    else
-                                        Console.WriteLine("Command Failed");
-                                    break;
-                                case "2":
-                                    if (ccSaveLoad.Save())
-                                        Console.WriteLine("Command Completed");
-                                    else
-                                        Console.WriteLine("Command Failed");
-                                    break;
-                                default:
-                                    Console.WriteLine("I didn't quite catch that.");
-                                    break;
+                            case "1":
+                                if (ccSaveLoad.Load())
+                                    Console.WriteLine("Command Completed");
+                                else
+                                    Console.WriteLine("Command Failed");
+                                goto SaveLoadMenuStart;
+                            case "2":
+                                if (ccSaveLoad.Save())
+                                    Console.WriteLine("Command Completed");
+                                else
+                                    Console.WriteLine("Command Failed");
+                                goto SaveLoadMenuStart;
+                            case "3":
+                                break;
+                            default:
+                                Console.WriteLine("I didn't quite catch that.");
+                                goto SaveLoadMenuStart;
 
-                            }
-                            break;
                         }
                         break;
                     #endregion

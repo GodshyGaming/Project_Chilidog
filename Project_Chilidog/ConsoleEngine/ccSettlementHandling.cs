@@ -128,7 +128,7 @@ namespace Project_Chilidog.ConsoleEngine
             TargetProperty = Console.ReadLine();
 
             if (TargetProperty == "Exit")
-                return Target;
+                return;
 
             foreach (var Property in Target.GetType().GetProperties())
             {

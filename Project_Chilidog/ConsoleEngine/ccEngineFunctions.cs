@@ -89,9 +89,10 @@ namespace Project_Chilidog.ConsoleEngine
         /// <exception cref="ArgumentException">
         /// If search couldn't be completed succesfully.
         /// </exception>
-        public static IGameObject SearchObject(string searchTerm, List<IGameObject> GlobalList)
+        public static T SearchObject<T>(string searchTerm, List<T> GlobalList)
+            where T : IGameObject
         {
-            foreach(IGameObject GameObject in GlobalList)
+            foreach(T GameObject in GlobalList)
             {
                 if (GameObject.Name == searchTerm)
                     return GameObject;
