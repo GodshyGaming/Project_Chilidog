@@ -34,15 +34,14 @@ namespace Project_Chilidog.ConsoleEngine
                     string description;
                     int population;
 
-                    Console.Write("What will this good be called?\n" +
+                    Console.Write("What will this settlement be called?\n" +
                         "Name: ");
                     name = Console.ReadLine();
-                    Console.Write("Describe this good for posterity\n" +
+                    Console.Write("Describe this settlement for posterity\n" +
                         "Description: ");
                     description = Console.ReadLine();
-                    Console.Write("What will the basic unit of this" +
-                        "good be known as? (kg, lb, bushel, whatever)\n" +
-                        "Name: ");
+                    Console.Write("What will be the population of this settlement?\n" +
+                        "Population: ");
                     population = int.Parse(Console.ReadLine());
 
                     Console.WriteLine();

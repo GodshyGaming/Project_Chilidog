@@ -2,7 +2,6 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Project_Chilidog.ConsoleEngine
 {
@@ -15,14 +14,9 @@ namespace Project_Chilidog.ConsoleEngine
         /// </summary>
         public static bool Save()
         {
-            string jsonGGoods = JsonSerializer.Serialize(Program.GlobalGoods);
-            string jsonGSettlements = JsonSerializer.Serialize(Program.GlobalSettlements);
-            string jsonGMerchants = JsonSerializer.Serialize(Program.GlobalMerchants);
-            string jsonGTradeRoutes = JsonSerializer.Serialize(Program.GlobalTradeRoutes);
-
             SaveStart:
             Console.WriteLine("What would you like your save file to be called?: ");
-            string filename = Program.SaveFolder + Console.ReadLine();
+            string filename = Program.SaveFolder + "\\" + Console.ReadLine();
 
             if (Directory.Exists(filename))
             {
@@ -39,10 +33,10 @@ namespace Project_Chilidog.ConsoleEngine
 
             SaveContinue:
 
-            File.WriteAllText(filename + "\\GlobalGoods.json", jsonGGoods);
-            File.WriteAllText(filename + "\\GlobalSettlements.json", jsonGSettlements);
-            File.WriteAllText(filename + "\\GlobalMerchants.json", jsonGMerchants);
-            File.WriteAllText(filename + "\\GlobalTradeRoutes.json", jsonGTradeRoutes);
+            File.WriteAllText(filename + "\\GlobalGoods.json", JsonSerializer.Serialize(Program.GlobalGoods));
+            File.WriteAllText(filename + "\\GlobalSettlements.json", JsonSerializer.Serialize(Program.GlobalSettlements));
+            File.WriteAllText(filename + "\\GlobalMerchants.json", JsonSerializer.Serialize(Program.GlobalMerchants));
+            File.WriteAllText(filename + "\\GlobalTradeRoutes.json", JsonSerializer.Serialize(Program.GlobalTradeRoutes));
 
             return true;
         }
