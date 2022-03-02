@@ -17,24 +17,26 @@ namespace Project_Chilidog.Merchants
     /// CashOnHand: Cash currently in Merchant's inventory
     /// InventoriedGoods: Goods currently in the Merchant's inventory
     /// </fields>
-    public interface IMerchant
+    public interface IMerchant : IGameObject
     {
-        #region Properties
+        #region Fields
 
         /// <summary>
-        /// ID of merchant
+        /// ID of settlement
         /// </summary>
+        #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         int ID { get; }
 
         /// <summary>
-        /// Name of the Merchant
+        /// The name of the settlement.
         /// </summary>
         string Name { get; set; }
 
         /// <summary>
-        /// Description of the Merchant
+        /// The description of the settlement.
         /// </summary>
         string Description { get; set; }
+        #pragma warning restore CS0108
 
         /// <summary>
         /// Cash currently in Merchant's inventory

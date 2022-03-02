@@ -16,24 +16,26 @@
     /// DestinationB: Other end of the trade route, opposite of DestinationA.
     /// Length: Real distance from DestinationA to DestinationB relative to mode of travel
     /// </fields>
-    public interface ITradeRoute
+    public interface ITradeRoute : IGameObject
     {
         #region Fields
 
         /// <summary>
-        /// ID of trade route
+        /// ID of settlement
         /// </summary>
+        #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         int ID { get; }
 
         /// <summary>
-        /// Name of the trade route
+        /// The name of the settlement.
         /// </summary>
         string Name { get; set; }
 
         /// <summary>
-        /// Description of the trade route
+        /// The description of the settlement.
         /// </summary>
         string Description { get; set; }
+        #pragma warning restore CS0108
 
         /// <summary>
         /// One end of the trade route, opposite of DestinationB.

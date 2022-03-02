@@ -15,24 +15,26 @@
     /// Type: The type of good
     /// BaseValue: Basic value of the good, before calculating scarcity
     /// </fields>
-    public interface IGood
+    public interface IGood : IGameObject
     {
         #region Fields
 
         /// <summary>
-        /// ID of good
+        /// ID of settlement
         /// </summary>
+        #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         int ID { get; }
 
         /// <summary>
-        /// Name of the good
+        /// The name of the settlement.
         /// </summary>
         string Name { get; set; }
 
         /// <summary>
-        /// Description of the good
+        /// The description of the settlement.
         /// </summary>
         string Description { get; set; }
+        #pragma warning restore CS0108
 
         /// <summary>
         /// Basic unit of the good (kg, lbs, bushel, whatever)
