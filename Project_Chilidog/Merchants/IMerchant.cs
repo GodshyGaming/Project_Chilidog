@@ -61,7 +61,7 @@ namespace Project_Chilidog.Merchants
         /// <summary>
         /// Goods currently in the Merchant's inventory
         /// </summary>
-        List<Goods.IGood> InventoriedGoods { get; set; }
+        Dictionary<Goods.IGood, int> InventoriedGoods { get; set; }
 
         #endregion
     }
