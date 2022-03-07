@@ -22,7 +22,6 @@
         /// <summary>
         /// ID of settlement
         /// </summary>
-        #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         int ID { get; }
 
         /// <summary>
@@ -34,7 +33,6 @@
         /// The description of the settlement.
         /// </summary>
         string Description { get; set; }
-        #pragma warning restore CS0108
 
         /// <summary>
         /// Basic unit of the good (kg, lbs, bushel, whatever)

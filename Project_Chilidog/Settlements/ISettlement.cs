@@ -25,7 +25,6 @@ namespace Project_Chilidog.Settlements
         /// <summary>
         /// ID of settlement
         /// </summary>
-        #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         int ID { get; }
 
         /// <summary>
@@ -37,7 +36,6 @@ namespace Project_Chilidog.Settlements
         /// The description of the settlement.
         /// </summary>
         string Description { get; set; }
-        #pragma warning restore CS0108
 
         /// <summary>
         /// The type of trade route
